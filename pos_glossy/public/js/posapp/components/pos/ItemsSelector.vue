@@ -25,7 +25,7 @@
                 min-height="50">
                 <v-card hover="hover" @click="add_item(item)">
                   <v-img :src="item.image ||
-                    '/assets/posawesome/js/posapp/components/pos/placeholder-image.png'
+                    '/assets/pos_glossy/js/posapp/components/pos/placeholder-image.png'
                     " class="white--text align-end" gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4)"
                     height="100px">
                     <v-card-text v-text="item.item_name" class="text-caption px-1 pb-0"></v-card-text>
@@ -54,7 +54,7 @@
                     min-height="50">
                     <v-card hover="hover" @click="add_item(item)">
                       <v-img :src="item.image ||
-                        '/assets/posawesome/js/posapp/components/pos/placeholder-image.png'
+                        '/assets/pos_glossy/js/posapp/components/pos/placeholder-image.png'
                         " class="white--text align-end" gradient="to bottom, rgba(0,0,0,0), rgba(0,0,0,0.4)"
                         height="100px">
                       </v-img>
@@ -203,7 +203,7 @@ export default {
         vm.loading = false;
       }
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_items",
+        method: "pos_glossy.pos_glossy.api.posapp.get_items",
         args: {
           pos_profile: vm.pos_profile,
           price_list: vm.customer_price_list,
@@ -250,7 +250,7 @@ export default {
       } else {
         const vm = this;
         frappe.call({
-          method: "pos_glossy.posawesome.api.posapp.get_items_groups",
+          method: "pos_glossy.pos_glossy.api.posapp.get_items_groups",
           args: {},
           callback: function (r) {
             if (r.message) {
@@ -428,7 +428,7 @@ export default {
       // set debugger
       const vm = this;
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_items_details",
+        method: "pos_glossy.pos_glossy.api.posapp.get_items_details",
         args: {
           pos_profile: vm.pos_profile,
           items_data: items,

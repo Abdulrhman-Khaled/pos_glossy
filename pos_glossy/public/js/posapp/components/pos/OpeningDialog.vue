@@ -125,7 +125,7 @@ export default {
     get_opening_dialog_data() {
       const vm = this;
       frappe.call({
-        method: 'pos_glossy.posawesome.api.posapp.get_opening_dialog_data',
+        method: 'pos_glossy.pos_glossy.api.posapp.get_opening_dialog_data',
         args: {},
         callback: function (r) {
           if (r.message) {
@@ -146,7 +146,7 @@ export default {
       this.is_loading = true;
       const vm = this;
       return frappe
-        .call('pos_glossy.posawesome.api.posapp.create_opening_voucher', {
+        .call('pos_glossy.pos_glossy.api.posapp.create_opening_voucher', {
           pos_profile: this.pos_profile,
           company: this.company,
           balance_details: this.payments_methods,

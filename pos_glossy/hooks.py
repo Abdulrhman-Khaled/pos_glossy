@@ -15,8 +15,8 @@ app_license = "MIT"
 # app_include_css = "/assets/pos_glossy/css/pos_glossy.css"
 # app_include_js = "/assets/pos_glossy/js/pos_glossy.js"
 app_include_js = [
-    "/assets/posawesome/node_modules/vuetify/dist/vuetify.js",
-    "posawesome.bundle.js",
+    "/assets/pos_glossy/node_modules/vuetify/dist/vuetify.js",
+    "pos_glossy.bundle.js",
 ]
 
 # include js, css files in header of web template
@@ -33,9 +33,9 @@ app_include_js = [
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
 doctype_js = {
-    "POS Profile": "posawesome/api/pos_profile.js",
-    "Sales Invoice": "posawesome/api/invoice.js",
-    "Company": "posawesome/api/company.js",
+    "POS Profile": "pos_glossy/api/pos_profile.js",
+    "Sales Invoice": "pos_glossy/api/invoice.js",
+    "Company": "pos_glossy/api/company.js",
 }
 
 # include js in doctype views
@@ -130,13 +130,13 @@ doctype_js = {
 
 doc_events = {
     "Sales Invoice": {
-        "validate": "pos_glossy.posawesome.api.invoice.validate",
-        "before_submit": "pos_glossy.posawesome.api.invoice.before_submit",
-        "before_cancel": "pos_glossy.posawesome.api.invoice.before_cancel",
+        "validate": "pos_glossy.pos_glossy.api.invoice.validate",
+        "before_submit": "pos_glossy.pos_glossy.api.invoice.before_submit",
+        "before_cancel": "pos_glossy.pos_glossy.api.invoice.before_cancel",
     },
     "Customer": {
-        "validate": "pos_glossy.posawesome.api.customer.validate",
-        "after_insert": "pos_glossy.posawesome.api.customer.after_insert",
+        "validate": "pos_glossy.pos_glossy.api.customer.validate",
+        "after_insert": "pos_glossy.pos_glossy.api.customer.after_insert",
     },
 }
 

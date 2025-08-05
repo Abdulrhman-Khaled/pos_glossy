@@ -4,15 +4,15 @@ include *.json
 include *.md
 include *.py
 include *.txt
-recursive-include posawesome *.css
-recursive-include posawesome *.csv
-recursive-include posawesome *.html
-recursive-include posawesome *.ico
-recursive-include posawesome *.js
-recursive-include posawesome *.json
-recursive-include posawesome *.md
-recursive-include posawesome *.png
-recursive-include posawesome *.py
-recursive-include posawesome *.svg
-recursive-include posawesome *.txt
-recursive-exclude posawesome *.pyc
+recursive-include pos_glossy *.css
+recursive-include pos_glossy *.csv
+recursive-include pos_glossy *.html
+recursive-include pos_glossy *.ico
+recursive-include pos_glossy *.js
+recursive-include pos_glossy *.json
+recursive-include pos_glossy *.md
+recursive-include pos_glossy *.png
+recursive-include pos_glossy *.py
+recursive-include pos_glossy *.svg
+recursive-include pos_glossy *.txt
+recursive-exclude pos_glossy *.pyc

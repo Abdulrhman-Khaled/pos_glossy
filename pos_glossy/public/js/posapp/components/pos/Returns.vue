@@ -88,7 +88,7 @@ export default {
     search_invoices() {
       const vm = this;
       frappe.call({
-        method: 'pos_glossy.posawesome.api.posapp.search_invoices_for_return',
+        method: 'pos_glossy.pos_glossy.api.posapp.search_invoices_for_return',
         args: {
           invoice_name: vm.invoice_name,
           company: vm.company,

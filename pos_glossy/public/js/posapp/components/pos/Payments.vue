@@ -516,7 +516,7 @@ export default {
 
       const vm = this;
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.submit_invoice",
+        method: "pos_glossy.pos_glossy.api.posapp.submit_invoice",
         args: {
           data: data,
           invoice: this.invoice_doc,
@@ -619,7 +619,7 @@ export default {
       this.clear_all_amounts();
       if (e) {
         frappe
-          .call("pos_glossy.posawesome.api.posapp.get_available_credit", {
+          .call("pos_glossy.pos_glossy.api.posapp.get_available_credit", {
             customer: this.invoice_doc.customer,
             company: this.pos_profile.company,
           })
@@ -659,7 +659,7 @@ export default {
         return;
       }
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_customer_addresses",
+        method: "pos_glossy.pos_glossy.api.posapp.get_customer_addresses",
         args: { customer: vm.invoice_doc.customer },
         async: true,
         callback: function (r) {
@@ -706,7 +706,7 @@ export default {
         );
       }
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_sales_person_names",
+        method: "pos_glossy.pos_glossy.api.posapp.get_sales_person_names",
         callback: function (r) {
           if (r.message) {
             vm.sales_persons = r.message;
@@ -760,7 +760,7 @@ export default {
 
       frappe
         .call({
-          method: "pos_glossy.posawesome.api.posapp.update_invoice",
+          method: "pos_glossy.pos_glossy.api.posapp.update_invoice",
           args: {
             data: formData,
           },
@@ -774,7 +774,7 @@ export default {
         .then(() => {
           frappe
             .call({
-              method: "pos_glossy.posawesome.api.posapp.create_payment_request",
+              method: "pos_glossy.pos_glossy.api.posapp.create_payment_request",
               args: {
                 doc: vm.invoice_doc,
               },
@@ -830,7 +830,7 @@ export default {
     get_mpesa_modes() {
       const vm = this;
       frappe.call({
-        method: "pos_glossy.posawesome.api.m_pesa.get_mpesa_mode_of_payment",
+        method: "pos_glossy.pos_glossy.api.m_pesa.get_mpesa_mode_of_payment",
         args: { company: vm.pos_profile.company },
         async: true,
         callback: function (r) {

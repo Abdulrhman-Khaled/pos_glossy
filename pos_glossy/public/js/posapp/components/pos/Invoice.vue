@@ -658,7 +658,7 @@ export default {
       this.posting_date = frappe.datetime.nowdate();
       if (doc.name && this.pos_profile.posa_allow_delete) {
         frappe.call({
-          method: "pos_glossy.posawesome.api.posapp.delete_invoice",
+          method: "pos_glossy.pos_glossy.api.posapp.delete_invoice",
           args: { invoice: doc.name },
           async: true,
           callback: function (r) {
@@ -829,7 +829,7 @@ export default {
     update_invoice(doc) {
       const vm = this;
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.update_invoice",
+        method: "pos_glossy.pos_glossy.api.posapp.update_invoice",
         args: {
           data: doc,
         },
@@ -1033,7 +1033,7 @@ export default {
     get_draft_invoices() {
       const vm = this;
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_draft_invoices",
+        method: "pos_glossy.pos_glossy.api.posapp.get_draft_invoices",
         args: {
           pos_opening_shift: this.pos_opening_shift.name,
         },
@@ -1056,7 +1056,7 @@ export default {
 
     fetch_sales_persons() {
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_sales_person_names",
+        method: "pos_glossy.pos_glossy.api.posapp.get_sales_person_names",
         callback: (r) => {
           if (r.message) {
             this.sales_persons = r.message;
@@ -1072,7 +1072,7 @@ export default {
       const vm = this;
       if (!vm.pos_profile) return;
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_items_details",
+        method: "pos_glossy.pos_glossy.api.posapp.get_items_details",
         async: false,
         args: {
           pos_profile: vm.pos_profile,
@@ -1099,7 +1099,7 @@ export default {
     update_item_detail(item) {
       const vm = this;
       frappe.call({
-        method: "pos_glossy.posawesome.api.posapp.get_item_detail",
+        method: "pos_glossy.pos_glossy.api.posapp.get_item_detail",
         args: {
           warehouse: this.pos_profile.warehouse,
           doc: this.get_invoice_doc(),
@@ -1194,7 +1194,7 @@ export default {
       const vm = this;
       if (this.customer) {
         frappe.call({
-          method: "pos_glossy.posawesome.api.posapp.get_customer_info",
+          method: "pos_glossy.pos_glossy.api.posapp.get_customer_info",
           args: {
             customer: vm.customer,
           },
@@ -2226,7 +2226,7 @@ export default {
       this.selcted_delivery_charges = {};
       frappe.call({
         method:
-          "pos_glossy.posawesome.api.posapp.get_applicable_delivery_charges",
+          "pos_glossy.pos_glossy.api.posapp.get_applicable_delivery_charges",
         args: {
           company: this.pos_profile.company,
           pos_profile: this.pos_profile.name,
@@ -2244,7 +2244,7 @@ export default {
     update_delivery_charges_rate_api() {
       if (this.selcted_delivery_charges.name !== '') {
         frappe.call({
-          method: "pos_glossy.posawesome.api.posapp.update_delivery_charge_default_rate",
+          method: "pos_glossy.pos_glossy.api.posapp.update_delivery_charge_default_rate",
           args: {
             name: this.selcted_delivery_charges.name,
             default_rate: this.delivery_charges_rate_input,

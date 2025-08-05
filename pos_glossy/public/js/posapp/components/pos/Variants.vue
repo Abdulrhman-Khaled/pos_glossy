@@ -10,19 +10,9 @@
         <v-card-text class="pa-0">
           <v-container v-if="parentItem">
             <div v-for="attr in parentItem.attributes" :key="attr.attribute">
-              <v-chip-group
-                v-model="filters[attr.attribute]"
-                active-class="green--text text--accent-4"
-                column
-              >
-                <v-chip
-                  v-for="value in attr.values"
-                  :key="value.abbr"
-                  :value="value.attribute_value"
-                  outlined
-                  label
-                  @click="updateFiltredItems"
-                >
+              <v-chip-group v-model="filters[attr.attribute]" active-class="green--text text--accent-4" column>
+                <v-chip v-for="value in attr.values" :key="value.abbr" :value="value.attribute_value" outlined label
+                  @click="updateFiltredItems">
                   {{ value.attribute_value }}
                 </v-chip>
               </v-chip-group>
@@ -30,30 +20,14 @@
             </div>
             <div>
               <v-row dense class="overflow-y-auto" style="max-height: 500px">
-                <v-col
-                  v-for="(item, idx) in filterdItems"
-                  :key="idx"
-                  xl="2"
-                  lg="3"
-                  md="4"
-                  sm="4"
-                  cols="6"
-                  min-height="50"
-                >
+                <v-col v-for="(item, idx) in filterdItems" :key="idx" xl="2" lg="3" md="4" sm="4" cols="6"
+                  min-height="50">
                   <v-card hover="hover" @click="add_item(item)">
-                    <v-img
-                      :src="
-                        item.image ||
-                        '/assets/posawesome/js/posapp/components/pos/placeholder-image.png'
-                      "
-                      class="white--text align-end"
-                      gradient="to bottom, rgba(0,0,0,.2), rgba(0,0,0,.7)"
-                      height="100px"
-                    >
-                      <v-card-text
-                        v-text="item.item_name"
-                        class="text-subtitle-2 px-1 pb-2"
-                      ></v-card-text>
+                    <v-img :src="item.image ||
+                      '/assets/pos_glossy/js/posapp/components/pos/placeholder-image.png'
+                      " class="white--text align-end" gradient="to bottom, rgba(0,0,0,.2), rgba(0,0,0,.7)"
+                      height="100px">
+                      <v-card-text v-text="item.item_name" class="text-subtitle-2 px-1 pb-2"></v-card-text>
                     </v-img>
                     <v-card-text class="text--primary pa-1">
                       <div class="text-caption primary--text accent-3">

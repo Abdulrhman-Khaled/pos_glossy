@@ -84,7 +84,7 @@ export default {
       }
       const vm = this;
       frappe.call({
-        method: 'pos_glossy.posawesome.api.posapp.get_pos_coupon',
+        method: 'pos_glossy.pos_glossy.api.posapp.get_pos_coupon',
         args: {
           coupon: new_coupon,
           customer: vm.customer,
@@ -118,7 +118,7 @@ export default {
       if (!this.customer) return;
       const vm = this;
       frappe.call({
-        method: 'pos_glossy.posawesome.api.posapp.get_active_gift_coupons',
+        method: 'pos_glossy.pos_glossy.api.posapp.get_active_gift_coupons',
         args: {
           customer: vm.customer,
           company: vm.pos_profile.company,

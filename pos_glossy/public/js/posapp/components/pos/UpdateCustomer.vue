@@ -230,7 +230,7 @@ export default {
           pos_profile_doc: this.pos_profile,
         };
         frappe.call({
-          method: 'pos_glossy.posawesome.api.posapp.create_customer',
+          method: 'pos_glossy.pos_glossy.api.posapp.create_customer',
           args: args,
           callback: (r) => {
             if (!r.exc && r.message.name) {

@@ -74,7 +74,7 @@ export default {
   methods: {
     check_opening_entry() {
       return frappe
-        .call('pos_glossy.posawesome.api.posapp.check_opening_shift', {
+        .call('pos_glossy.pos_glossy.api.posapp.check_opening_shift', {
           user: frappe.session.user,
         })
         .then((r) => {
@@ -96,7 +96,7 @@ export default {
     get_closing_data() {
       return frappe
         .call(
-          'pos_glossy.posawesome.doctype.pos_closing_shift.pos_closing_shift.make_closing_shift_from_opening',
+          'pos_glossy.pos_glossy.doctype.pos_closing_shift.pos_closing_shift.make_closing_shift_from_opening',
           {
             opening_shift: this.pos_opening_shift,
           }
@@ -112,7 +112,7 @@ export default {
     submit_closing_pos(data) {
       frappe
         .call(
-          'pos_glossy.posawesome.doctype.pos_closing_shift.pos_closing_shift.submit_closing_shift',
+          'pos_glossy.pos_glossy.doctype.pos_closing_shift.pos_closing_shift.submit_closing_shift',
           {
             closing_shift: data,
           }
@@ -131,7 +131,7 @@ export default {
     },
     get_offers(pos_profile) {
       return frappe
-        .call('pos_glossy.posawesome.api.posapp.get_offers', {
+        .call('pos_glossy.pos_glossy.api.posapp.get_offers', {
           profile: pos_profile,
         })
         .then((r) => {

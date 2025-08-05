@@ -66,7 +66,7 @@ export default {
       this.address.customer = this.customer;
       this.address.doctype = 'Customer';
       frappe.call({
-        method: 'pos_glossy.posawesome.api.posapp.make_address',
+        method: 'pos_glossy.pos_glossy.api.posapp.make_address',
         args: {
           args: this.address,
         },

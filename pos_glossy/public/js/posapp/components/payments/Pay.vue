@@ -438,7 +438,7 @@ export default {
 
     check_opening_entry() {
       return frappe
-        .call("pos_glossy.posawesome.api.posapp.check_opening_shift", {
+        .call("pos_glossy.pos_glossy.api.posapp.check_opening_shift", {
           user: frappe.session.user,
         })
         .then((r) => {
@@ -467,7 +467,7 @@ export default {
       if (!this.pos_profile.posa_allow_mpesa_reconcile_payments) return;
       return frappe
         .call(
-          "pos_glossy.posawesome.api.payment_entry.get_available_pos_profiles",
+          "pos_glossy.pos_glossy.api.payment_entry.get_available_pos_profiles",
           {
             company: this.company,
             currency: this.pos_profile.currency,
@@ -486,7 +486,7 @@ export default {
       const vm = this;
       if (this.customer_name) {
         frappe.call({
-          method: "pos_glossy.posawesome.api.posapp.get_customer_info",
+          method: "pos_glossy.pos_glossy.api.posapp.get_customer_info",
           args: {
             customer: vm.customer_name,
           },
@@ -511,7 +511,7 @@ export default {
       this.invoices_loading = true;
       return frappe
         .call(
-          "pos_glossy.posawesome.api.payment_entry.get_outstanding_invoices",
+          "pos_glossy.pos_glossy.api.payment_entry.get_outstanding_invoices",
           {
             customer: this.customer_name,
             company: this.company,
@@ -536,7 +536,7 @@ export default {
       }
       return frappe
         .call(
-          "pos_glossy.posawesome.api.payment_entry.get_unallocated_payments",
+          "pos_glossy.pos_glossy.api.payment_entry.get_unallocated_payments",
           {
             customer: this.customer_name,
             company: this.company,
@@ -581,7 +581,7 @@ export default {
       const vm = this;
       this.mpesa_payments_loading = true;
       return frappe
-        .call("pos_glossy.posawesome.api.m_pesa.get_mpesa_draft_payments", {
+        .call("pos_glossy.pos_glossy.api.m_pesa.get_mpesa_draft_payments", {
           company: vm.company,
           mode_of_payment: null,
           full_name: vm.mpesa_search_name || null,
@@ -697,7 +697,7 @@ export default {
       };
 
       frappe.call({
-        method: "pos_glossy.posawesome.api.payment_entry.process_pos_payment",
+        method: "pos_glossy.pos_glossy.api.payment_entry.process_pos_payment",
         args: { payload },
         freeze: true,
         freeze_message: __("Processing Payment"),
@@ -707,7 +707,7 @@ export default {
 
             // ✅ Create Event
             frappe.call({
-              method: "pos_glossy.posawesome.api.payment_entry.create_event_for_payment",
+              method: "pos_glossy.pos_glossy.api.payment_entry.create_event_for_payment",
               args: {
                 subject: `${customer_name || ""} - ${vm.event_subject}`,
                 start: formattedEventStart,
